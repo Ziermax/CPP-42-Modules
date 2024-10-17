@@ -1,0 +1,10 @@
+.
+..
+.DS_Store
+*.o
+*.d
+*.swp
+*.swo
+*.out
+test*
+*.txt

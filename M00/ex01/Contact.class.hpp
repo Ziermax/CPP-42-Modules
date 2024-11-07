@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:16:56 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/10/20 22:44:37 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:56:33 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ class Contact
 		void		setFirstName(std::string fName);
 		void		setLastName(std::string lName);
 		void		setNickName(std::string nName);
-		void		setPhoneNumber(int number);
+		void		setPhoneNumber(std::string number);
 		void		setDarkestSecret(std::string dSecret);
 
 		std::string getFirstName(void) const;
 		std::string getLastName(void) const;
 		std::string getNickName(void) const;
-		int 		getPhoneNumber(void) const;
+		std::string	getPhoneNumber(void) const;
 		std::string getDarkestSecret(void) const;
 
 	private:
@@ -42,7 +42,7 @@ class Contact
 		std::string	_firstName;
 		std::string	_lastName;
 		std::string	_nickName;
-		int			_phoneNumber;
+		std::string	_phoneNumber;
 		std::string	_darkestSecret;
 };
 

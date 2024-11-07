@@ -6,23 +6,44 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 22:04:49 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/10/20 22:22:39 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/07 02:32:47 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
+#include "PhoneBook.class.hpp"
 
-int	main(void)
+void	start_phonebook(void)
 {
-	Contact	aux;
+	PhoneBook	phbook;
+	std::string	word;
 
+	while (word != "EXIT")
+	{
+		word = "";
+		while (word.empty())
+		{
+			std::cout << BIG << "Waiting for word..." << std::endl << DFT
+				<< "Word: ";
+			std::getline(std::cin, word);
+			if (std::cin.eof())
+			{
+				std::cerr << std::endl;
+				std::cerr << "End of input detected. Exiting ..." << std::endl;
+				return ;
+			}
+		}
+		if (word == "ADD")
+			phbook.addContact();
+		else if (word == "SEARCH")
+			phbook.searchContact();
+	}
 }
-//	aux.added = true;
-//	aux.setFirstName("Manolo");
-//	std::cout << "Asignado primer nombre a " << aux.getFirstName() << std::endl;
-//	aux.setLastName("Lama");
-//	std::cout << "Asignado apellido a " << aux.getFirstName()
-//		<< " y es: " << aux.getLastName() << std::endl;
-//	aux.setPhoneNumber(-2147483648);
-//	std::cout << "Asignado numero a " << aux.getFirstName()
-//		<< " y es: " << aux.getPhoneNumber() << std::endl;
+
+int	main(int argc, char **argv)
+{
+	(void)argv;
+	if (argc != 1)
+		return (1);
+	start_phonebook();
+}

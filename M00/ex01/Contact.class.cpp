@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 21:19:22 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/10/20 22:20:18 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:53:18 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 Contact::Contact(void)
 {
-	std::cout << BIG "Constructor called for Contact"DFT << std::endl;
 	this->added = false;
-	std::cout << "Setted added to false" << std::endl;
-	std::cout << BCY "Constructor finished for Contact"DFT << std::endl;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << BIR "Destructor called for Contact"DFT << std::endl;
-	std::cout << RED "Destructor finished for Contact"DFT << std::endl;
+	return ;
 }
 
 void	Contact::setFirstName(std::string fName)
@@ -41,7 +37,7 @@ void	Contact::setNickName(std::string nName)
 	this->_nickName = nName;
 }
 
-void	Contact::setPhoneNumber(int number)
+void	Contact::setPhoneNumber(std::string number)
 {
 	this->_phoneNumber = number;
 }
@@ -66,7 +62,7 @@ std::string Contact::getNickName(void) const
 	return (this->_nickName);
 }
 
-int Contact::getPhoneNumber(void) const
+std::string	Contact::getPhoneNumber(void) const
 {
 	return (this->_phoneNumber);
 }

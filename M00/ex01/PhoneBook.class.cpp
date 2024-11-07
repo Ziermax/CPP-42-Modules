@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 22:43:52 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/06 16:52:45 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:20:27 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	PhoneBook::addContact(void)
 	if (aux[1].empty())
 		return ;
 	aux[2] = getString("nickname");
-	if (aux[2].kmpty())
+	if (aux[2].empty())
 		return ;
 	aux[3] = getString("phonenumber");
 	if (aux[3].empty())

@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 02:05:07 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/07 22:54:31 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:01:04 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,25 @@ void	Account::displayStatus( void ) const
 /* Crear funcion de tiempo */
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[19920104_091532] ";
+	time_t		curr_time;
+	struct tm	*tm_local;
+
+	time(&curr_time);
+	tm_local = localtime(&curr_time);
+	std::cout << "[" << (tm_local->tm_year + 1900);
+	if (tm_local->tm_mon + 1 < 10)
+		std::cout << "0";
+	std::cout << (tm_local->tm_mon + 1);
+	if (tm_local->tm_mday < 10)
+		std::cout << "0";
+	std::cout << tm_local->tm_mday << "_";
+	if (tm_local->tm_hour < 10)
+		std::cout << "0";
+	std::cout << (tm_local->tm_hour);
+	if (tm_local->tm_min < 10)
+		std::cout << "0";
+	std::cout << (tm_local->tm_min);
+	if (tm_local->tm_sec < 10)
+		std::cout << "0";
+	std::cout << (tm_local->tm_sec) << "] ";
 }

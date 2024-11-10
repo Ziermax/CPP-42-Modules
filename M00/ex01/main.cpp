@@ -6,12 +6,12 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 22:04:49 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/07 02:32:47 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:22:48 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 void	start_phonebook(void)
 {
@@ -33,10 +33,10 @@ void	start_phonebook(void)
 				return ;
 			}
 		}
-		if (word == "ADD")
-			phbook.addContact();
-		else if (word == "SEARCH")
-			phbook.searchContact();
+		if (word == "ADD" && phbook.addContact())
+			return ;
+		else if (word == "SEARCH" && phbook.searchContact())
+			return ;
 	}
 }
 

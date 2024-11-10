@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98# -fsanitize=address
 
 #<---------------------------------|FILES|------------------------------------>#
 
-SRC_F = Contact.class.cpp PhoneBook.class.cpp main.cpp
+SRC_F = Contact.cpp PhoneBook.cpp main.cpp
 
 OBJ_F = $(SRC_F:.cpp=.o)
 OBJ_D = ./objects/

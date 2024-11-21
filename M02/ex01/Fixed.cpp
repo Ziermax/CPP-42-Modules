@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:15:01 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/16 20:11:14 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/19 21:21:03 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Fixed::Fixed(void): _fixPoint(0)
 	std::cout << "Void constructor called" << std::endl;
 	return ;
 }
+
 Fixed::Fixed(int const value)
 {
 	std::cout << "Int constructor called" << std::endl;

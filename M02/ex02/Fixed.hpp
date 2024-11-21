@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 15:18:35 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/18 19:14:43 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:13:50 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,31 @@ class	Fixed
 		Fixed( float const value );
 		Fixed( Fixed const &cpyConst );
 
-		Fixed	& operator = ( Fixed const &cpyAssign );
-		bool	operator > ( Fixed const &comparison );
-		bool	operator < ( Fixed const &comparison );
-		bool	operator >= ( Fixed const &comparison );
-		bool	operator <= ( Fixed const &comparison );
-		bool	operator == ( Fixed const &comparison );
-		bool	operator != ( Fixed const &comparison );
-		Fixed	operator + ( Fixed const &mathOp );
-		Fixed	operator - ( Fixed const &mathOp );
-		Fixed	operator * ( Fixed const &mathOp );
-		Fixed	operator / ( Fixed const &mathOp );
-
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
+
+		Fixed	& operator = ( Fixed const &cpyAssign );
+		bool	operator > ( Fixed const &comparison ) const;
+		bool	operator < ( Fixed const &comparison ) const;
+		bool	operator >= ( Fixed const &comparison ) const;
+		bool	operator <= ( Fixed const &comparison ) const;
+		bool	operator == ( Fixed const &comparison ) const;
+		bool	operator != ( Fixed const &comparison ) const;
+		Fixed	operator + ( Fixed const &mathOp ) const;
+		Fixed	operator - ( Fixed const &mathOp ) const;
+		Fixed	operator * ( Fixed const &mathOp ) const;
+		Fixed	operator / ( Fixed const &mathOp ) const;
+		Fixed	& operator ++ ();
+		Fixed	& operator -- ();
+		Fixed	operator ++ ( int );
+		Fixed	operator -- ( int );
+
+		static Fixed		&min(Fixed &fixedA, Fixed &fixedB);
+		static Fixed const	&min(Fixed const &fixedA, Fixed const &fixedB);
+		static Fixed		&max(Fixed &fixedA, Fixed &fixedB);
+		static Fixed const	&max(Fixed const &fixedA, Fixed const &fixedB);
 
 	private:
 		int static const	_fractBits = 8;
@@ -49,4 +58,3 @@ class	Fixed
 std::ostream	& operator << ( std::ostream &out, Fixed const &fixedPoint );
 
 #endif
-//		void	myStaff(void);

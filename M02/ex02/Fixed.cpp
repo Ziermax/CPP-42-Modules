@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:15:01 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/19 21:20:51 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:13:06 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,22 +100,46 @@ bool	Fixed:: operator != (Fixed const &comparison) const
 
 Fixed	Fixed:: operator + (Fixed const &mathOp) const
 {
-	return (this->toFloat() + mathOp.toFloat());
+	Fixed	ret;
+
+	ret.setRawBits(_fixPoint + mathOp.getRawBits());
+	return (ret);
 }
 
 Fixed	Fixed:: operator - (Fixed const &mathOp) const
 {
-	return (this->toFloat() - mathOp.toFloat());
+	Fixed	ret;
+
+	ret.setRawBits(_fixPoint - mathOp.getRawBits());
+	return (ret);
 }
 
 Fixed	Fixed:: operator * (Fixed const &mathOp) const
 {
-	return (this->toFloat() * mathOp.toFloat());
+	Fixed	ret;
+	long	a;
+	long	b;
+
+	a = _fixPoint;
+	b = mathOp.getRawBits();
+	a *= b;
+	a = a >> _fractBits;
+	ret.setRawBits((int)a);
+	return (ret);
 }
 
 Fixed	Fixed:: operator / (Fixed const &mathOp) const
 {
-	return (this->toFloat() / mathOp.toFloat());
+	Fixed	ret;
+	long	a;
+	long	b;
+
+	a = _fixPoint;
+	b = mathOp.getRawBits();
+	a /= b;
+	a = a << _fractBits;
+	ret.setRawBits((int)a);
+	return (ret);
 }
 
 Fixed	&Fixed:: operator ++ ()
@@ -181,3 +205,27 @@ std::ostream	& operator << (std::ostream &out, Fixed const &fixedPoint)
 	out << fixedPoint.toFloat();
 	return (out);
 }
+//
+//int	Fixed::_getFlippedDecimal(void) const
+//{
+//	int	flipped;
+//	int	bit;
+//	int	i;
+//
+//	flipped = 0;
+//	i = 0;
+//	std::cout << "raw bytes: " << _fixPoint << std::endl;
+//	while (i < _fractBits)
+//	{
+//		//bit = _fixPoint & (1 << i);
+//		bit = (_fixPoint >> i) & 1;
+//		printf("bit[%d]: %d\n", i + 1, bit);
+//		bit = bit << (_fractBits - i);
+//		printf("Storing: %d in [%d]\n", bit, _fractBits - i);
+//		//flipped = flipped | ((_fixPoint & (1 << i)) >> (_fractBits - 1 - i));
+//		flipped = flipped | bit;
+//		printf("Flipped: %d\n\n", flipped);
+//		i++;
+//	}
+//	return (flipped);
+//}

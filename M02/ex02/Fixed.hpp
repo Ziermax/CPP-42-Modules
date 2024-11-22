@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 15:18:35 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/21 15:13:50 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:06:24 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ class	Fixed
 	private:
 		int static const	_fractBits = 8;
 		int					_fixPoint;
+
+//		int	_getFlippedDecimal( void ) const;
 };
 
 std::ostream	& operator << ( std::ostream &out, Fixed const &fixedPoint );

@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:22:00 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/23 14:54:29 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/23 23:27:44 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ unsigned int	ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::_deathMessage(void)
 {
-	std::cout << _name << " is death" << std::endl;
+	std::cout << _name << " is dead" << std::endl;
 }
 
 ClapTrap	&ClapTrap:: operator = (ClapTrap const &obj)
@@ -115,5 +115,7 @@ ClapTrap	&ClapTrap:: operator = (ClapTrap const &obj)
 		_energyPoints = obj._energyPoints;
 		_attackDamage = obj._attackDamage;
 	}
+	std::cout << _name << " <ClapTrap> is copy assignating: " << obj.getName()
+		<< std::endl;
 	return (*this);
 }

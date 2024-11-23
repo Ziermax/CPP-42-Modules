@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:44:30 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/23 14:55:46 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/23 23:26:03 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ ScavTrap::~ScavTrap(void)
 }
 
 ScavTrap::ScavTrap(void): ClapTrap()
-// Inherit attributes cannot be initialize in constructor like: var(value)
 {
 	_name = "ScavTrap";
 	_hitPoints = 100;
@@ -29,18 +28,17 @@ ScavTrap::ScavTrap(void): ClapTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &obj):ClapTrap(obj)
+ScavTrap::ScavTrap(ScavTrap const &obj): ClapTrap(obj)
+// Inherit attributes cannot be initialize in constructor like: var(value)
 {
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 	std::cout << _name << " <ScavTrap> has been copy constructed" << std::endl;
-	*this = obj;
 }
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	_name = name;
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
@@ -59,5 +57,7 @@ ScavTrap	&ScavTrap:: operator = (ScavTrap const &obj)
 	{
 		ClapTrap:: operator = (obj);
 	}
+	std::cout << _name << " <ScavTrap> is copy assignating: " << obj.getName()
+		<< std::endl;
 	return (*this);
 }

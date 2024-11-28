@@ -6,12 +6,13 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 14:48:28 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/27 19:09:35 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:00:20 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 /*
 int	main(void)
@@ -33,7 +34,7 @@ int	main(void)
 {
 	Animal const	*meta = new Animal();
 	Animal const	*j = new Dog();
-	Animal const	*i = new Cat();
+	WrongAnimal const	*i = new WrongCat();
 
 	std::cout << std::endl;
 	std::cout << meta->getType() << " " << std::endl;

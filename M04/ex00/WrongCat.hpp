@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:03:12 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/27 23:19:19 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:59:02 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 # define WRONGCAT_HPP
 
 # include <iostream>
+# include "WrongAnimal.hpp"
 
-class	WrongCat
+class	WrongCat: public WrongAnimal
 {
 	public:
 		~WrongCat( void );
 		WrongCat( void );
 		WrongCat( WrongCat const &obj );
 
-		std::string	getType( void ) const;
+		void		makeSound( void ) const;
 
 		WrongCat	& operator = ( WrongCat const &obj );
-
-	private:
-		std::string	_type;
 };
 
 #endif

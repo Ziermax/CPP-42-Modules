@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98# -fsanitize=address
 
 #<---------------------------------|FILES|------------------------------------>#
 
-SRC_F = Animal.cpp Dog.cpp Cat.cpp main.cpp 
+SRC_F = Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJ_F = $(SRC_F:.cpp=.o)
 OBJ_D = ./objects/

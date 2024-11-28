@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 20:29:48 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/27 17:53:50 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:29:14 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Cat	&Cat:: operator = (Cat const &obj)
 	std::cout << "Cat copy assignation called" << std::endl;
 	if (this != &obj)
 	{
-		this->_type = obj._type;
+		Animal::operator = (obj);
 	}
 	return (*this);
 }

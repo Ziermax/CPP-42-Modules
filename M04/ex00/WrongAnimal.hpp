@@ -6,7 +6,7 @@
 /*   By: mvelazqu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:03:00 by mvelazqu          #+#    #+#             */
-/*   Updated: 2024/11/27 23:19:25 by mvelazqu         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:48:57 by mvelazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@
 class	WrongAnimal
 {
 	public:
-		~WrongAnimal( void );
+		virtual	~WrongAnimal( void );
 		WrongAnimal( void );
 		WrongAnimal( WrongAnimal const &obj );
+		WrongAnimal( std::string const type );
 
-		std::string	getType( void ) const;
+		virtual void	makeSound( void ) const;
+		std::string		getType( void ) const;
 
 		WrongAnimal	& operator = ( WrongAnimal const &obj );
 
-	private:
+	protected:
 		std::string	_type;
 };
 

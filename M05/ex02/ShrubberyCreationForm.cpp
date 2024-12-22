@@ -6,7 +6,7 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2024/12/22 17:28:42 by mvelazqu            #+#    #+#            */
-/*  Updated: 2024/12/22 19:21:34 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2024/12/22 19:55:07 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("Fresa", 145, 137)
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name):
-	AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
+	AForm(target, 145, 137)
 {
 	std::cout << "Shrubbery single parameter constructor called" << std::endl;
 	return ;

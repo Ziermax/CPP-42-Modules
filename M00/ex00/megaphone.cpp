@@ -36,8 +36,6 @@ int	main(int argc, char **argv)
 		ft_toupper_string(argv[i]);
 		std::cout << argv[i];
 		i++;
-		if (i != argc)
-			std::cout << " ";
 	}
 	std::cout << std::endl;
 }

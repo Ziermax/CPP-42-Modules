@@ -6,7 +6,7 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2025/02/15 15:43:29 by mvelazqu            #+#    #+#            */
-/*  Updated: 2025/02/15 18:41:04 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2025/07/23 19:20:44 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,15 @@
 
 Base	*generate(void)
 {
-	int	i;
-
-    srand(time(NULL));
-	i = std::rand() % 3;
-	switch (i)
-	{
-		case 0:
-			return (new A);
-		case 1:
-			return (new B);
-		case 2:
-			return (new C);
-		default:
-			return (NULL);
-	}
-	return (NULL);
+	int	n;
+	
+	n = std::rand() % 3;
+	if (!n)
+		return (new A);
+	else if (n == 1)
+		(return new B);
+	else
+		return (new C);
 }
 
 void	identify(Base *p)

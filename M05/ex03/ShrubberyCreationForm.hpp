@@ -6,7 +6,7 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2024/12/22 17:28:40 by mvelazqu            #+#    #+#            */
-/*  Updated: 2024/12/22 19:54:58 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2025/07/21 15:12:57 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	ShrubberyCreationForm: public AForm
 	public:
 		~ShrubberyCreationForm( void );
 		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( std::string target );
+		ShrubberyCreationForm( std::string name, std::string target );
 		ShrubberyCreationForm( ShrubberyCreationForm const &obj );
 
 		void	doExec( Bureaucrat const &executor ) const;

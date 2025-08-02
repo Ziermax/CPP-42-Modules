@@ -6,10 +6,11 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2024/12/22 17:28:42 by mvelazqu            #+#    #+#            */
-/*  Updated: 2024/12/22 19:55:07 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2025/07/21 14:25:29 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fstream>//ofstream class
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
@@ -42,6 +43,43 @@ void	ShrubberyCreationForm::doExec(Bureaucrat const &executor) const
 {
 	std::cout << "Hi! I'm executing (" << this->getName() << ")" << std::endl
 		<< " | Hello, Executing, I'm " << executor.getName() << std::endl;
+	std::ofstream outfile((getName() + "_shrubbery").c_str());
+	if (!outfile.is_open())
+		throw std::runtime_error("Error to open the file.");
+	std::string const	GREEN = "\033[32m";
+	std::string const	BROWN = "\033[33m";
+	std::string const	RESET = "\033[0m";
+
+	std::string	const	tree =
+		GREEN +
+		"                    &&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"                 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"              &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"           &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"     &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n" +
+		BROWN +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                          |||\n" +
+		"                         |||||\n" +
+		"                     |||||||||\n" +
+		"                 |||||||||||||\n" +
+		"             |||||||||||||||||||\n" +
+		"        |||||||||||||||||||||||||\n" +
+		"    |||||||||||||||||||||||||||||||\n" +
+		RESET;
+	outfile << tree;
+	outfile.close();
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm:: operator = (

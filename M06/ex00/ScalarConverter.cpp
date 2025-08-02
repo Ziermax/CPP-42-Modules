@@ -6,10 +6,15 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2024/12/22 20:03:00 by mvelazqu            #+#    #+#            */
-/*  Updated: 2024/12/27 19:39:49 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2025/07/23 19:09:31 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
+#include <cctype>
+#include <climits>
+#include <cmath>
+#include <iostream>
 #include "ScalarConverter.hpp"
 
 ScalarConverter::~ScalarConverter(void)
@@ -27,9 +32,100 @@ ScalarConverter::ScalarConverter(ScalarConverter const &obj)
 	*this = obj;
 }
 
-void	ScalarConverter::convert(std::string input)
+int	ScalarConverter::parser(std::string str)
 {
-	(void)input;
+	if (str.length() == 1 && !std::isdigit(str[0]))
+		return (CHAR);
+
+	char	*end;
+
+	std::strtol(str.c_str(), &end, 10);
+	if (*end == '\0')
+		return (INT);
+
+	if (str[str.length() - 1] == 'f' && str != "inf" && str != "-inf" && str != "+inf")
+		str[str.length() - 1] = '\0';
+
+
+	double	num2 = std::strtod(str.c_str(), &end);
+	if (*end == '\0')
+	{
+		if (std::isnan(num2))
+			return (NAN_VAL);
+		else if (std::isinf(num2))
+			return (INF);
+		else
+			return (DOUBLE);
+	}
+	return (INVALID);
+}
+
+void	ScalarConverter::convertToDouble(double value, int type)
+{
+	std::cout << "double: ";
+	std::cout << value;
+	if (type != NAN_VAL && type != INF)
+	{
+		bool point = (std::floor(value) == value);
+		if (point)
+			std::cout << ".0";
+	}
+	std::cout << std::endl;
+}
+
+void	ScalarConverter::convertToFloat(double value, int type)
+{
+	std::cout << "float: ";
+	std::cout << value;
+	if (type != NAN_VAL && type != INF)
+	{
+		bool point = (std::floor(value) == value);
+		if (point)
+			std::cout << ".0";
+	}
+	std::cout << "f" << std::endl;
+}
+
+void	ScalarConverter::convertToInt(double value, int type)
+{
+	std::cout << "int: ";
+	if (type == INF || type == NAN_VAL || value > INT_MAX || value < INT_MIN)
+		std::cout << "Not able" << std::endl;
+	else
+		std::cout << static_cast<int>(value) << std::endl;
+}
+
+void	ScalarConverter::convertToChar(double value, int type)
+{
+	std::cout << "char: ";
+	if (value < 0 || value > 255 || type == INF || type == NAN_VAL)
+		std::cout << "Not able" << std::endl;
+	else if (value > 31 && value < 127)
+		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
+}
+
+void	ScalarConverter::convert(std::string str)
+{
+	size_t type = parser(str);
+
+	if (type == INVALID)
+	{
+		std::cout << "Error: Invalid input!" << std::endl;
+		return ;
+	}
+
+	double	value = std::strtod(str.c_str(), NULL);
+
+	if (type == CHAR)
+		value = static_cast<double>(str[0]);
+
+	convertToChar(value, type);
+	convertToInt(value, type);
+	convertToFloat(value, type);
+	convertToDouble(value, type);
+
 }
 
 ScalarConverter	&ScalarConverter:: operator = (ScalarConverter const &obj)

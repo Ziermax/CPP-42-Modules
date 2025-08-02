@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98# -fsanitize=address
 
 #<---------------------------------|FILES|------------------------------------>#
 
-SRC_F = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRC_F = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp
 
 OBJ_F = $(SRC_F:.cpp=.o)
 OBJ_D = ./objects/

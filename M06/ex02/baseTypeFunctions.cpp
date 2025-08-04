@@ -6,7 +6,7 @@
 /*  By: mvelazqu <mvelazqu@student.42barcelona.c     +#+  +:+       +#+       */
 /*                                                 +#+#+#+#+#+   +#+          */
 /*  Created: 2025/02/15 15:43:29 by mvelazqu            #+#    #+#            */
-/*  Updated: 2025/07/23 19:20:44 by mvelazqu           ###   ########.fr      */
+/*  Updated: 2025/08/04 17:08:37 by mvelazqu           ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Base	*generate(void)
 	if (!n)
 		return (new A);
 	else if (n == 1)
-		(return new B);
+		return (new B);
 	else
 		return (new C);
 }
